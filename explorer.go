@@ -107,8 +107,8 @@ func trimSuffix(s, suffix string) string {
 func convertPathToURL(src string) string {
 	path := src
 
-	// if on windows, remove : after the drive name
-	// and convert backward slashes to forward slases
+	// if on windows machine remove colon after the drive letter
+	// and convert backward slashes to forward slashes
 	if runtime.GOOS == "windows" {
 		path = strings.Replace(path, ":", "", 1)
 		path = strings.Replace(path, "\\", "/", -1)
@@ -130,7 +130,7 @@ func convertUrlToPath(src string) (string, error) {
 	// remove trailing slash
 	trimSuffix(path, "/")
 
-	// if on windows, fix drive letters with colon
+	// if on windows machine fix drive letters with colon
 	// and convert forward slashes to backward slashes
 	if runtime.GOOS == "windows" {
 		drives := []string{"c", "d", "e", "f"}
